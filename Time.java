@@ -40,7 +40,7 @@ public class Time {
       minutes += t/60;
       hours += (t/60) / 60;
       hours %= 24;
-       return seconds + minutes * 60 + hours * 3600;
+       return t*(seconds + minutes * 60 + hours * 3600);
    }
 
    
