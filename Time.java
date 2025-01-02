@@ -32,13 +32,45 @@ public class Time {
 
 
    public int add(int t) {
-       return 0;
+       seconds += t;
+      if (seconds >= 60){
+         minutes += seconds/60;
+         seconds %= 60; 
+      }
+      minutes += t/60;
+      hours += (t/60) / 60;
+      hours %= 24;
+       return seconds + minutes * 60 + hours * 3600;
    }
+
+   
    public String toString() {
-       String str = " ";
-       if (hours < 10 && minutes < 10 && seconds < 10) {
-           str += "0" + hours + ":0" + minutes + ":0" + seconds;
+       String str = "";
+       if (hours < 10) {
+           str += "0" + hours;
+       } 
+       else {
+           str += hours;
        }
+      
+       str += ":";
+      
+       if (minutes < 10) {
+           str += "0" + minutes;
+       } 
+       else {
+           str += minutes;
+       }
+      
+       str += ":";
+      
+       if (seconds < 10) {
+           str += "0" + seconds;
+       } 
+       else {
+           str += seconds;
+       }
+      
        return str;
    }
 }
